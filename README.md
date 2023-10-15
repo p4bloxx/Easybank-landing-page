@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/easybank-landing-page-html-css-sass-js-ryunvIahlC](https://www.frontendmentor.io/solutions/easybank-landing-page-html-css-sass-js-ryunvIahlC)
+- Live Site URL: [https://p4bloxx.github.io/Easybank-landing-page/](https://p4bloxx.github.io/Easybank-landing-page/)
 
 ## My process
 
