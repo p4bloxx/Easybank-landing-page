@@ -1,0 +1,227 @@
+//Tipography
+$fs-10: 0.625rem;
+$fs-13: 0.8125rem;
+$fs-14: 0.875rem;
+$fs-15: 0.9375rem;
+$fs-16: 1rem;
+$fs-18: 1.125rem;
+$fs-18: 1.125rem;
+$fs-20: 1.25rem;
+$fs-24: 1.5rem;
+$fs-32: 2rem;
+$fs-40: 2.5rem;
+$fs-56: 3.5rem;
+
+$fw-light: 300;
+$fw-reg: 400;
+$fw-bld: 700;
+
+//Colors
+$bg: rgba(255, 255, 255, 1);
+$second-bg: rgb(250, 250, 250);
+$very-light-gray: rgba(244, 245, 247, 1);
+$light-gray: rgba(149, 151, 165, 1);
+$blue-navy: rgba(45, 49, 77, 1);
+$green-flat: rgba(48, 200, 143, 1);
+$green-gradient: rgba(51, 211, 94, 1), rgba(42, 182, 217, 1);
+
+
+//Mixins and components
+@mixin flex-col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-col-start{
+  @include flex-col;
+  align-items: start;
+}
+
+@mixin flex{
+  @include flex-col;
+  flex-direction: row;
+}
+
+.cta{
+  color: $bg;
+  background: linear-gradient($green-gradient);
+  font-weight: $fw-bld;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 22px;
+  font-size: $fs-14;
+  line-height: 200%;
+  position: relative;
+    @media screen and (min-width: 75rem) {
+      &::after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 22px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        z-index: 1;
+      }
+      &:hover::after{
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+    }
+}
+
+button:focus-visible,
+a:focus-visible{
+  border: 4px solid rgb(238, 60, 60);
+  outline: none;
+}
+
+//card - article section
+.card{
+  background-color: $bg;
+  border-radius: 5px;
+    & img{
+      width: 100%;
+      height: 200px;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .article-text{
+      padding: 2.5rem 2rem;
+      @include flex-col-start;
+      gap: 8px;
+
+        span{
+          font-size: $fs-10;
+          line-height: $fs-18;
+        }
+
+        h4{
+          font-weight: $fw-light;
+          color: $blue-navy;
+          font-size: $fs-16;
+          line-height: $fs-20;
+        }
+
+        p{
+          font-size: $fs-13;
+          line-height: $fs-18;
+        }
+    }
+}
+
+h1,h2,h3,h4{
+  font-weight: $fw-light;
+  color: $blue-navy;
+}
+
+h1{
+  font-size: $fs-40;
+  letter-spacing: -0.714px; 
+}
+
+h2{
+  font-size: $fs-32;
+}
+
+h3{
+  font-size: $fs-20;
+}
+
+p:not(.article-text p){
+  letter-spacing: -0.234px;
+  line-height: 25px;
+  font-size: $fs-15;
+}
+
+@media screen and (min-width: 48rem) {
+  h1{
+    font-size: $fs-56;
+    letter-spacing: -1px; 
+  }
+
+  h2{
+    font-size: $fs-40;
+  }
+
+  h3{
+    font-size: $fs-24;
+  }
+}
+
+.fa-brands{
+  color: $bg;
+}
+
+//general reset
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+ul{
+  list-style: none;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body{
+  min-height: 100vh;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: $fw-reg;
+  color: $light-gray;
+  overflow-x: hidden;
+}
